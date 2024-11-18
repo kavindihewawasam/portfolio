@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/Main.css";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
-
+import se from "./assets/amazon.jpg";
 const Main = () => {
   return (
     <div className="main">
@@ -17,7 +17,15 @@ const Main = () => {
               <Facebook className="icon" />
               <LinkedIn className="icon" />
             </div>
+            <div className="buttons">
+              <button>See Me</button>
+              <button>Hire Me</button>
+            </div>
           </div>
+        </div>
+
+        <div className="main_img">
+          <img src={se} alt="img" />
         </div>
       </div>
     </div>
