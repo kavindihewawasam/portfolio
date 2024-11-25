@@ -4,56 +4,39 @@ import { Close, MenuBookOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { active, setActive } = useState(false);
+  const [active, setActive] = useState(false); // Corrected the destructuring
 
-  const showMenu = () => {
+  const toggleMenu = () => {
     setActive(!active);
   };
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header_logo">
         <h1>simplilearn</h1>
       </div>
 
-      <nav>
+      <nav className={`navbar ${active ? "active" : ""}`}>
+        <div className="closed">
+          <Close className="close" onClick={toggleMenu} />
+        </div>
         <ul>
-          <div className="closed">
-            <Close className="close" onclick={showMenu} />
-          </div>
-
-          <li>
-            <Link to="/">
-              <b>Home</b>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <b>About</b>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <b>Portfolio</b>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <b>Blog</b>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <b>Contact</b>
-            </Link>
-          </li>
+          {["Home", "About", "Portfolio", "Blog", "Contact"].map(
+            (item, idx) => (
+              <li key={idx}>
+                <Link to={`/${item.toLowerCase()}`}>
+                  <b>{item}</b>
+                </Link>
+              </li>
+            )
+          )}
         </ul>
       </nav>
 
       <div className="changer">
-        <MenuBookOutlined className="menu" onclick={showMenu} />
+        <MenuBookOutlined className="menu" onClick={toggleMenu} />
       </div>
-    </div>
+    </header>
   );
 };
 

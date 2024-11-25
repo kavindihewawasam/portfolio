@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/Main.css";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
-import se from "./assets/amazon.jpg";
+import se from "./assets/linkedin.jpg";
 const Main = () => {
   return (
     <div className="main">
@@ -24,9 +24,9 @@ const Main = () => {
           </div>
         </div>
 
-        <div className="main_img">
+        {/* <div className="main_img">
           <img src={se} alt="img" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
