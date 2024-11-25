@@ -1,4 +1,4 @@
-
+/* General Header Styles */
 .header {
     width: 100%;
     display: flex;
@@ -7,67 +7,56 @@
     padding: 1rem 2rem;
     position: fixed;
     top: 0;
-    background: white;
+    background-color: #0a192f; /* Dark blue background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
   
+  /* Logo Styles */
   .header_logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333;
+    color: #64ffda; /* Light green logo text */
+    margin-left: 2rem;
   }
   
   /* Navbar Styles */
-  .navbar {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.9);
-    justify-content: center;
-    transition: transform 0.4s ease-in-out;
-    transform: translateX(100%);
-  }
-  
-  .navbar.active {
-    display: flex;
-    transform: translateX(0);
-  }
-  
   .navbar ul {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
     list-style: none;
+    margin: 0;
     padding: 0;
   }
   
   .navbar ul li a {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    color: #ccd6f6; /* Light blue links */
     font-weight: 600;
-    color: #444;
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
   }
   
   .navbar ul li a:hover {
-    color: red;
+    color: #64ffda; /* Light green hover effect */
+    border-bottom: 2px solid #64ffda; /* Underline effect on hover */
   }
   
-  /* Icon Styles */
+  /* Mobile Menu Styles */
   .changer .menu {
     display: block;
     font-size: 2rem;
     cursor: pointer;
+    color: #64ffda; /* Light green menu icon */
   }
   
   .closed .close {
     display: none;
     font-size: 2rem;
     cursor: pointer;
+    color: #64ffda; /* Light green close icon */
   }
   
   .navbar.active .closed .close {
@@ -77,28 +66,40 @@
     right: 1.5rem;
   }
   
-  /* Responsive Design */
-  @media (min-width: 800px) {
+  /* Responsive Navbar for Mobile */
+  @media (max-width: 800px) {
     .navbar {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      background: #0a192f; /* Same dark blue for mobile menu */
+      justify-content: center;
+      transition: transform 0.4s ease-in-out;
+      transform: translateX(100%);
+    }
+  
+    .navbar.active {
       display: flex;
-      flex-direction: row;
-      position: static;
       transform: translateX(0);
-      background: none;
-      justify-content: flex-end;
     }
   
     .navbar ul {
-      flex-direction: row;
-      gap: 1.5rem;
+      flex-direction: column;
+      gap: 2rem;
     }
   
-    .changer .menu {
-      display: none;
+    .navbar ul li a {
+      font-size: 1.5rem;
+      color: #64ffda; /* Light green links for mobile */
     }
+  }
   
-    .closed .close {
-      display: none;
-    }
+  /* Additional Hover and Focus Effects */
+  a:hover,
+  a:focus {
+    color: #64ffda; /* Highlight all links on hover/focus */
+    transition: 0.3s;
   }
   
